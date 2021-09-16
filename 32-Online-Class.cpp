@@ -69,6 +69,13 @@ void qu :: deQueue()
     else
     {
         cout<<"Deleted Element : "<<Q[FRONT++]<<endl;
+         if(!IsEmpty())
+        {
+            FRONT--;
+            for(int loop = FRONT; loop < REAR; loop++)
+                Q[loop] = Q[loop+1];
+            REAR--;
+        }
     }
     position();
 }
