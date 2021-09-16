@@ -6,6 +6,7 @@ class qu
 {
     int Q[SIZE];
     int FRONT, REAR;
+
 public:
     qu();
     void enQueue();               //  Insert
@@ -41,7 +42,7 @@ bool qu :: IsEmpty()
 }
 bool qu :: IsFull()
 {
-    if (REAR - FRONT + 1 == SIZE)
+    if (REAR - FRONT == SIZE - 1)
         return true;
     else
         return false;
@@ -69,6 +70,16 @@ void qu :: deQueue()
     else
     {
         cout<<"Deleted Element : "<<Q[FRONT++]<<endl;
+
+        // Moving all the elements one step forward
+        if(!IsEmpty())
+        {
+            FRONT--;
+            for(int loop = FRONT; loop < REAR; loop++)
+                Q[loop] = Q[loop+1];
+            REAR--;
+        }
+
     }
     position();
 }
@@ -126,8 +137,3 @@ int main()
 
     }while (true);     // while(choice!=4) infinite
 }
-
-// T1 Time
-//Moving the array elements -- T2 Time
-// Always T1 < T2  ; When there is a delete operation
-
