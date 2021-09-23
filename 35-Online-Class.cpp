@@ -63,7 +63,7 @@ int main()
             }
             else
             {
-                while(  !temp.empty()  )
+                while(  !temp.empty()  and temp.top() != '(' )
                 {
                     postfix.push(temp.top());
                     temp.pop();
@@ -76,13 +76,13 @@ int main()
 cout<<endl;
 cout<<endl<<"Input : "<<value;
 cout<<endl<<"postfix : ";
+if(!temp.empty())
 display(postfix);
 cout<<endl<<"temp : ";
 if(!temp.empty())
 display(temp);
 cout<<endl<<"Press a key to process next input.";
 getch();
-
     }
     while( !temp.empty())
     {
@@ -99,6 +99,8 @@ getch();
 
 void display(stack<char> &ptr)
 {
+    if(!ptr.empty())
+    {
     char element;
     element = ptr.top();
     ptr.pop();
@@ -106,4 +108,13 @@ void display(stack<char> &ptr)
         display(ptr);
     cout<<element<<" ";
     ptr.push(element);
+    }
 }
+
+
+
+
+
+
+
+
