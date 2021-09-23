@@ -4,6 +4,8 @@
 #include <stack>
 #include<string.h>
 #include <iostream>
+#include<iomanip>
+#include<conio.h>
 using namespace std;
 void display(stack<char> &);
 
@@ -37,6 +39,7 @@ int main()
 
         else if ( value == '*' or value == '/' )
         {
+
             if( temp.empty() or temp.top() == '(' or temp.top() == '+' or temp.top() == '-' )
             {
                 temp.push(value);
@@ -60,16 +63,25 @@ int main()
             }
             else
             {
-                while( !temp.empty() )
+                while(  !temp.empty()  )
                 {
                     postfix.push(temp.top());
                     temp.pop();
-                    if( temp.top() == '(' )
-                        break;
+
                 }
                 temp.push(value);
             }
         }
+//BLOCK TO SEE STEP BY STEP PROCESSING
+cout<<endl;
+cout<<endl<<"Input : "<<value;
+cout<<endl<<"postfix : ";
+display(postfix);
+cout<<endl<<"temp : ";
+if(!temp.empty())
+display(temp);
+cout<<endl<<"Press a key to process next input.";
+getch();
 
     }
     while( !temp.empty())
@@ -77,8 +89,8 @@ int main()
         postfix.push(temp.top());
         temp.pop();
     }
-    cout<<"Infix : "<<infix<<endl;
-    cout<<"Postfix : ";
+    cout<<"\n \n Infix : "<<infix;
+    cout<<"\n Postfix : ";
     display(postfix);
     cout<<endl;
 
@@ -94,8 +106,4 @@ void display(stack<char> &ptr)
         display(ptr);
     cout<<element<<" ";
     ptr.push(element);
-                    //1     2   3
-                    //3                 1   2                       1   2       3
-                    //2                 1                           1   2
-                    //1                 null                        1
 }
