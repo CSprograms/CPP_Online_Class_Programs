@@ -4,8 +4,6 @@
 #include <stack>
 #include<string.h>
 #include <iostream>
-#include<iomanip>
-#include<conio.h>
 using namespace std;
 void display(stack<char> &);
 
@@ -72,17 +70,6 @@ int main()
                 temp.push(value);
             }
         }
-//BLOCK TO SEE STEP BY STEP PROCESSING
-cout<<endl;
-cout<<endl<<"Input : "<<value;
-cout<<endl<<"postfix : ";
-if(!temp.empty())
-display(postfix);
-cout<<endl<<"temp : ";
-if(!temp.empty())
-display(temp);
-cout<<endl<<"Press a key to process next input.";
-getch();
     }
     while( !temp.empty())
     {
