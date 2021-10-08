@@ -7,19 +7,19 @@ class io
 private:
     int value;
 public:
-    io()    // Empty Constructor
+    io()
     {
         value = 0;
     }
 
-    io(int ip)  // Argumented Constructor
+    io(int ip)
     {
         value = ip;
     }
 
-    io(io *ip)  //Copy Constructor  object2's address in ip pointer
+    io(io *ip)
     {
-        value = ip->value;      //ip.value
+        value = ip->value;
     }
 
     void print(void);
@@ -32,9 +32,9 @@ void io :: print(void)
 }
 int main()
 {
-   io object1;          // Empty
-   io object2(6);       // Argumented
-   io object3(object2); // Copy
+   io object1;
+   io object2(6);
+   io object3(object2);
 
    object1.print();
    object2.print();
