@@ -7,20 +7,16 @@ class io
 private:
     int value;
 public:
-    io()    // Empty Constructor
+    io()
     {
         value = 0;
     }
-    io(int ip)  // Argumented Constructor
+    io(int ip)
     {
         value = ip;
     }
-/*    io(io *ip)  // Copy Constructor
-    {
-        value = ip->value;
-    }
-*/
-    int get(void);
+
+    int getValue(void);
     io operator-();
     io operator-(io ope2);
 
@@ -39,7 +35,7 @@ io io :: operator-(io ope2) // object1 implicit & object2 as argument
     return temp;
 }
 
-int io :: get(void)
+int io :: getValue(void)
 {
     return value;
 }
@@ -53,9 +49,9 @@ int main()
 
    object3 = object1 - object2;
 
-   cout<<"Object 1 : "<<object1.get()<<endl;
-   cout<<"Object 2 : "<<object2.get()<<endl;
-   cout<<"Object 3 : "<<object3.get()<<endl;
+   cout<<"Object 1 : "<<object1.getValue()<<endl;
+   cout<<"Object 2 : "<<object2.getValue()<<endl;
+   cout<<"Object 3 : "<<object3.getValue()<<endl;
 
 return 0;
 }
