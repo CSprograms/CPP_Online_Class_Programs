@@ -5,7 +5,6 @@
 #include<string.h>
 #include <iostream>
 using namespace std;
-void display(stack<char> &);
 
 int main()
 {
@@ -64,8 +63,14 @@ int main()
             }
       }
      }
-    temp = result.top();
+     if(result.empty())
+    {
+        cout<<"\n Invalid Expression.."<<endl;
+        return(0);
+    }
+    temp = result.top();    // stored answer
     result.pop();
+
     if(!result.empty())
     {
         cout<<"\n Invalid Expression.."<<endl;
